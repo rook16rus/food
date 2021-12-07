@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Вход</title>
+</head>
+<body>
+    <main>
+        <div class="authorization-wrapper">
+            <div class="authorization">
+                <h1 class="authorization__title">Вход</h1>
+                <form class="authorization__form">
+                    <div class="authorization__input-block">
+                        <label class="visually-hidden" for="authorization_mail">E-mail</label>
+                        <input class="authorization__input" type="email" id="authorization_mail" placeholder="E-mail">
+                    </div>
+                    <div class="authorization__input-block">
+                        <label class="visually-hidden" for="authorization_password">Пароль</label>
+                        <input class="authorization__input" type="password" id="authorization_password" placeholder="Пароль">
+                    </div>
+                    <div class="authorization__checkbox-block">
+                        <input class="authorization__checkbox visually-hidden" type="checkbox" id="authorization_checkbox">
+                        <label class="authorization__checkbox-label" for="authorization_checkbox">Я согласен получать обновления на почту</label>
+                    </div>
+                    <button class="authorization__button button"><a href="#">Войти</a></button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
