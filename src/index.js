@@ -7,22 +7,37 @@ const checkbox = document.querySelector('input[type="checkbox"]');
 const button = document.querySelector('.authorization__button');
 
 button.addEventListener('click', function(e) {
+    localStorage.setItem('email', 'kamalov_albert@mail.ru');
+    localStorage.setItem('password', '12345');
+    const userPassword = localStorage.getItem('password');
+    const userEmail = localStorage.getItem('email');
+
     for (let input of [email, password, checkbox]) {
         errReset(input);
-
         if (input.value === '' || (input.type === 'checkbox' && !input.checked)) {
             invalid(input);
             addErrorDescription(input, 'Поле обязательно для заполнения');
+            continue;
         } else if (input.type === 'email' && !validateEmail(input.value)) {
             invalid(input);
             addErrorDescription(input, 'Email невалидный');
-        } else if (input.type === 'password' && input.value.length < 8) {
+            continue;
+        } else if (input.type === 'password' && input.value.length < 5) {
             invalid(input);
-            addErrorDescription(input, 'Пароль должен содержать как минимум 8 символов');
-        } else {
-            if (input.type !== 'checkbox') obj[input.type] = input.value;
+            addErrorDescription(input, 'Пароль должен содержать как минимум 5 символов');
+            continue;
+        } else if (input.type === 'password' && input.value !== userPassword) {
+            invalid(input);
+            addErrorDescription(input, 'Пароль неверен');
+            continue;
+        } else if (input.type === 'email' && input.value !== userEmail) {
+            invalid(input);
+            addErrorDescription(input, 'Email неверен');
+            continue;
         }
     }
+
+    if (email.value == userEmail && password.value == userPassword && checkbox.checked) window.location.href='./catalog.html';
     e.preventDefault();
 });
 
