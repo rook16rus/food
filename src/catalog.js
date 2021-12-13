@@ -25,8 +25,12 @@ addButtons.forEach(button => {
         const foodPrice = this.previousSibling.querySelector('b').innerText.slice(0, -2).replace(/\s+/g, '') * 1;
         const foodTitle = this.parentNode.parentNode.querySelector('.catalog__item-title').innerText;
         const foodImg = this.parentNode.parentNode.querySelector('.catalog__item-img').src;
+        const foodId = this.parentNode.parentNode.parentNode.id;
+
+        console.log(foodId);
 
         purchases.push({
+            id: foodId,
             name: foodTitle,
             price: foodPrice,
             img: foodImg,
@@ -40,7 +44,7 @@ addButtons.forEach(button => {
     })
 });
 
-/*   Отправляю данные о покупке для страницы с корзиной   */
+/*   Отправляю данные о покупках для страницы с корзиной   */
 
 window.onbeforeunload = function() {
     localStorage.setItem('purchases', JSON.stringify(purchases));

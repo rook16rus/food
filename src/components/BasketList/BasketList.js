@@ -14,11 +14,13 @@ function BasketList() {
                     {
                         purchases.map((purchase) => {
                             return (
-                                <BasketItem
-                                    name={purchase.name}
-                                    price={purchase.price}
-                                    img={purchase.img}
-                                />
+                                <li className="basket__item" key={purchase.id}>
+                                    <BasketItem
+                                        name={purchase.name}
+                                        price={purchase.price}
+                                        img={purchase.img}
+                                    />
+                                </li>
                             )
                         })
                     }

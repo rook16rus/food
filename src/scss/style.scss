@@ -197,13 +197,16 @@ body {
   }
 
   &__item {
-    display: flex;
-    flex-direction: column;
-
     width: calc(100% / 4 - 15px);
     padding: 43px 21px 32px;
     border: 1px solid $brown;
     transition: 0.3s;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
     &:hover {
       color: $brown;
@@ -338,10 +341,13 @@ body {
   }
 
   &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 31px;
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__item-img {

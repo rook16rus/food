@@ -77,14 +77,15 @@ function CatalogList() {
             {
                 foods.map((food) => {
                     return (
-                        <CatalogItem
-                            id={food.id}
-                            name={food.name}
-                            descr={food.descr}
-                            price={food.price}
-                            gram={food.gram}
-                            img={food.img}
-                        />
+                        <li className="catalog__item" id={food.id} key={food.id}>
+                            <CatalogItem
+                                name={food.name}
+                                descr={food.descr}
+                                price={food.price}
+                                gram={food.gram}
+                                img={food.img}
+                            />
+                        </li>
                     )
                 })
             }

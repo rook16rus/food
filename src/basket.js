@@ -11,7 +11,7 @@ ReactDOM.render(
     document.querySelector('.main')
 );
 
-const foodsSum = document.querySelector('.basket-footer__sum span').innerText * 1;
+
 
 /*   Реализация кнопок удаления товаров   */
 
@@ -19,10 +19,13 @@ const deleteButtons = document.querySelectorAll('.delete-button');
 
 deleteButtons.forEach(button => {
     button.addEventListener('click', function (e) {
+        let foodsSum = document.querySelector('.basket-footer__sum span').innerText * 1;
         const foodPrice = this.parentNode.querySelector('.basket__item-price').innerText.slice(0, -2) * 1;
 
+        console.log(foodPrice);
+
         document.querySelector('.basket-footer__sum span').innerText = foodsSum - foodPrice;
-        this.parentNode.remove();
+        this.parentNode.parentNode.remove();
 
         e.preventDefault();
     })
@@ -33,8 +36,8 @@ deleteButtons.forEach(button => {
 const registrationButton = document.querySelector('.basket-footer__button');
 
 registrationButton.addEventListener('click', (e) => {
+    let foodsSum = document.querySelector('.basket-footer__sum span').innerText * 1;
     let foodsCount = document.querySelectorAll('.basket__item').length;
+
     alert(`Куплено количество товаров: ${foodsCount}. На сумму: ${foodsSum} руб`);
-
-
-})
+});
