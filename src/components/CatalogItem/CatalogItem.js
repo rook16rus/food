@@ -1,7 +1,4 @@
 import React from 'react';
-import img from "../../img/catalog-1.png";
-import img2 from "../../img/catalog-2.png";
-import img3 from "../../img/catalog-3.png";
 
 function CatalogItem(food) {
     return (

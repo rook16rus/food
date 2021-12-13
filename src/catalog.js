@@ -32,8 +32,6 @@ addButtons.forEach(button => {
             img: foodImg,
         });
 
-        console.log(purchases);
-
         foodsSum += foodPrice;
         foodsCount++;
         document.querySelector('.header-basket__quantity-sum').innerText = foodsSum;
