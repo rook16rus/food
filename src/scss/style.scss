@@ -165,7 +165,7 @@ body {
   text-align: left;
 }
 
-/*  Catalog  */
+/*  CatalogSection  */
 
 .catalog {
   padding: 48px 0 67px;
@@ -289,6 +289,7 @@ body {
   background: url("../img/add-button.svg") no-repeat center;
   cursor: pointer;
   transition: 0.3s;
+  flex-shrink: 0;
 
   &:hover {
     background-color: $brown;
@@ -344,6 +345,8 @@ body {
   }
 
   &__item-img {
+    max-width: 132px;
+
     @media (max-width: 580px) {
       max-width: 110px;
     }

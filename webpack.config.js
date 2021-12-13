@@ -5,22 +5,35 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        authorization: path.resolve(__dirname, 'src', 'index.js'),
+        catalog: path.resolve(__dirname, 'src', 'catalog.js'),
+        basket: path.resolve(__dirname, 'src', 'basket.js'),
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+        }),
         new HtmlWebpackPlugin({
-            template: "./src/index.html"
+            template: "./src/index.html",
+            filename: "index.html",
+            chunks: ['authorization'],
         }),
         new HtmlWebpackPlugin({
             template: "./src/catalog.html",
-            filename: "catalog.html"
+            filename: "catalog.html",
+            chunks: ['catalog'],
         }),
         new HtmlWebpackPlugin({
             template: "./src/basket.html",
-            filename: "basket.html"
+            filename: "basket.html",
+            chunks: ['basket'],
         }),
         new MiniCssExtractPlugin(),
     ],
@@ -45,6 +58,14 @@ module.exports = {
                     filename: '[name][ext]',
                 },
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                },
+            },
+
         ],
     },
     devServer: {
@@ -52,5 +73,6 @@ module.exports = {
     },
     externals: {
         "jquery": "jQuery"
-    }
+    },
+    devtool: "eval-source-map"
 };
