@@ -27,7 +27,7 @@ addButtons.forEach(button => {
         const foodImg = this.parentNode.parentNode.querySelector('.catalog__item-img').src;
         const foodId = this.parentNode.parentNode.parentNode.id;
 
-        console.log(foodId);
+        console.log(purchases);
 
         purchases.push({
             id: foodId,
